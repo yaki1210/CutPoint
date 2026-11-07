@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cutpoint"
+version = "0.1.0"
+description = "Detect video cut points from pixel, histogram, luma, and bitrate curves."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{ name = "yaki1210" }]
+keywords = ["video", "shot-boundary", "ffmpeg", "scene-detection"]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Multimedia :: Video",
+]
+dependencies = ["numpy", "pillow"]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.urls]
+Homepage = "https://github.com/yaki1210/CutPoint"
+Repository = "https://github.com/yaki1210/CutPoint"
+
+[project.scripts]
+cutpoint = "cutpoint.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
